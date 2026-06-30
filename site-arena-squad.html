@@ -106,8 +106,7 @@
         .topbar-brand .icon::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(34,197,94,0.08), transparent); }
         .topbar-brand h1 { font-family: 'Special Elite', 'Orbitron', monospace; font-size: clamp(14px, 3.5vw, 18px); font-weight: 400; color: var(--green); letter-spacing: 2px; }
         .topbar-brand h1 span { color: var(--sand); }
-        .topbar-actions { display: flex; gap: 6px; animation: fadeSlideIn 0.5s ease 0.15s both; align-items: center; flex-wrap: nowrap; margin-left: auto; flex-shrink: 0; padding-right: 4px; }
-        .topbar.has-side-buttons { /* Empty topbar when side buttons are used */ }
+        .topbar-actions { display: flex; gap: 6px; animation: fadeSlideIn 0.5s ease 0.15s both; align-items: center; flex-wrap: nowrap; margin-left: auto; flex-shrink: 0; }
         .topbar-actions button { background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: var(--green); padding: 6px 11px; border-radius: 8px; cursor: pointer; font-size: clamp(11px, 2.5vw, 12px); font-weight: 700; font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; transition: all .25s; white-space: nowrap; min-height: 34px; position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
         .topbar-actions button::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, transparent, rgba(255,255,255,0.03)); opacity: 0; transition: opacity .3s; }
         .topbar-actions button:hover::before { opacity: 1; }
@@ -117,102 +116,7 @@
         .topbar-actions .btn-primary:hover { box-shadow: 0 0 35px rgba(34,197,94,0.3); transform: translateY(-1px); }
         .topbar-actions .btn-primary:active { transform: scale(.96); }
 
-        .year-section { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: clamp(40px, 5vw, 60px) clamp(12px, 3vw, 28px) 6px; }
-        /* Side buttons - painel fixo na lateral direita */
-        .side-buttons {
-            position: fixed; right: 16px; top: 80px; z-index: 90;
-            display: flex; flex-direction: column; gap: 8px;
-            padding: 12px 10px;
-            background: rgba(10,10,10,0.8);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius);
-            box-shadow: var(--glass-shadow);
-            animation: fadeSlideIn 0.6s ease both;
-        }
-        .side-buttons button {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--green);
-            padding: 8px 14px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 700;
-            font-family: 'Rajdhani', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all .25s;
-            white-space: nowrap;
-            min-height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-        }
-        .side-buttons button:hover {
-            background: var(--green-glass);
-            border-color: rgba(34,197,94,0.3);
-            transform: translateX(-2px);
-        }
-        .side-buttons button:active { transform: scale(.95); }
-        .side-buttons .btn-loja {
-            background: linear-gradient(135deg, var(--green-dark), var(--green));
-            color: #fff; border: none;
-            box-shadow: 0 0 20px rgba(34,197,94,0.15);
-        }
-        .side-buttons .btn-admin {
-            background: rgba(239,68,68,0.12);
-            border: 1px solid rgba(239,68,68,0.3);
-            color: var(--red);
-        }
-        .side-buttons .btn-today {
-            background: linear-gradient(135deg, var(--green-dark), var(--green));
-            color: #fff; border: none;
-            box-shadow: 0 0 16px rgba(34,197,94,0.12);
-        }
-        .side-buttons .btn-today:hover {
-            box-shadow: 0 0 28px rgba(34,197,94,0.25);
-        }
-        .side-buttons .btn-nav {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--green);
-            font-size: 16px;
-            padding: 6px 14px;
-        }
-        .side-buttons .sb-divider {
-            width: 100%; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
-            margin: 4px 0;
-        }
-        @media (max-width: 768px) {
-            .side-buttons {
-                flex-direction: row;
-                flex-wrap: wrap;
-                right: 50%;
-                transform: translateX(50%);
-                top: auto;
-                bottom: 16px;
-                justify-content: center;
-                gap: 4px;
-                padding: 8px 10px;
-                border-radius: 14px;
-                max-width: calc(100vw - 24px);
-            }
-            .side-buttons button {
-                padding: 8px 10px;
-                font-size: 11px;
-                min-height: 36px;
-            }
-            .side-buttons .sb-divider {
-                width: 1px; height: 24px;
-                margin: 0 2px;
-            }
-            .side-buttons .btn-nav {
-                padding: 6px 10px;
-            }
-        }
+        .year-section { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: clamp(12px, 3vw, 20px) clamp(12px, 3vw, 28px) 6px; }
         .year-header { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: clamp(14px, 3vw, 20px) clamp(16px, 3vw, 24px); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; box-shadow: var(--glass-shadow); }
         .year-header::before { content: ''; position: absolute; inset: 0; border-radius: var(--radius); background: linear-gradient(135deg, rgba(34,197,94,0.04), transparent); pointer-events: none; }
         .year-header h1 { font-family: 'Special Elite', 'Orbitron', monospace; font-size: clamp(20px, 5vw, 26px); font-weight: 400; color: var(--green); letter-spacing: 2px; animation: fadeSlideIn 0.8s ease both; }
@@ -228,7 +132,7 @@
         .stagger-1 { animation-delay: 0.05s; } .stagger-2 { animation-delay: 0.1s; } .stagger-3 { animation-delay: 0.15s; }
         .stagger-4 { animation-delay: 0.2s; } .stagger-5 { animation-delay: 0.25s; } .stagger-6 { animation-delay: 0.3s; }
 
-        .months-grid { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: clamp(48px, 6vw, 80px) clamp(12px, 3vw, 28px) clamp(16px, 3vw, 28px); display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: clamp(12px, 2vw, 20px); }
+        .months-grid { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 0 clamp(12px, 3vw, 28px) clamp(16px, 3vw, 28px); display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: clamp(12px, 2vw, 20px); }
         .month-card { background: rgba(20,20,20,0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(34,197,94,0.12); border-radius: var(--radius); overflow: hidden; box-shadow: var(--glass-shadow); transition: all .35s cubic-bezier(.4,0,.2,1); animation: fadeSlideIn 0.6s ease both; position: relative; }
         .month-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(34,197,94,0.02), transparent); pointer-events: none; }
         .month-card:hover { border-color: rgba(34,197,94,0.35); box-shadow: 0 8px 40px rgba(34,197,94,0.1); transform: translateY(-3px); }
@@ -355,13 +259,13 @@
             .topbar-brand .icon { width: 30px; height: 30px; font-size: 13px; border-radius: 8px; flex-shrink: 0; }
             .topbar-brand h1 { font-size: 15px; }
 
-            .year-section { padding: 32px 10px 4px; }
+            .year-section { padding: 16px 10px 4px; }
             .year-header { padding: 12px 14px; gap: 8px; border-radius: 14px; }
             .year-header h1 { font-size: 17px; }
             .year-nav { gap: 4px; }
             .year-nav button { padding: 10px 14px; font-size: 13px; border-radius: 10px; min-height: 44px; }
 
-            .months-grid { gap: 22px; padding: 40px 12px 20px; grid-template-columns: 1fr; }
+            .months-grid { gap: 22px; padding: 16px 12px 20px; grid-template-columns: 1fr; }
             .month-card { border-radius: 14px; }
             .month-card .mc-header { padding: 10px 12px; }
             .month-card .mc-header h3 { font-size: 13px; }
@@ -809,19 +713,15 @@ n.scroll-hint {
         <div class="icon">⚔️</div>
         <div><h1>ARENA <span>SQUAD</span></h1></div>
     </div>
+    <div class="topbar-actions">
+        <button onclick="window.location.href='index.html'" style="background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--sand);padding:7px 12px;border-radius:10px;cursor:pointer;font-size:12px;font-weight:600;font-family:'Rajdhani',sans-serif;" title="Voltar ao Site">◀ Site</button>
+        <button onclick="abrirLoja()" style="background:var(--green-glass);border:1px solid var(--green);color:var(--green);padding:7px 12px;border-radius:10px;cursor:pointer;font-size:12px;font-weight:700;font-family:Rajdhani,sans-serif;letter-spacing:0.5px">🛒 Loja</button>
+        <button onclick="openAdmin()" style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);color:var(--red);padding:7px 12px;border-radius:10px;cursor:pointer;font-size:12px;font-weight:700;font-family:Rajdhani,sans-serif;">⚙️ Admin</button>
+        <button class="btn-today" onclick="goToday()">◆ Atual</button>
+        <button onclick="prevYear()" style="background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--green);padding:7px 12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;font-family:Rajdhani,sans-serif;line-height:1;">◀</button>
+        <button onclick="nextYear()" style="background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--green);padding:7px 12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;font-family:Rajdhani,sans-serif;line-height:1;">▶</button>
     </div>
-
-<!-- Botões flutuantes na lateral direita -->
-<div class="side-buttons">
-    <button onclick="window.location.href='index.html'" title="Voltar ao Site">◀ Site</button>
-    <button onclick="abrirLoja()" class="btn-loja">🛒 Loja</button>
-    <button onclick="openAdmin()" class="btn-admin">⚙️ Admin</button>
-    <div class="sb-divider"></div>
-    <button class="btn-today" onclick="goToday()">◆ Atual</button>
-    <button onclick="prevYear()" class="btn-nav">◀</button>
-    <button onclick="nextYear()" class="btn-nav">▶</button>
-</div>
-
+    </div>
 <div class="scroll-hint">↓ Role para ver o calendário</div>
 
 
