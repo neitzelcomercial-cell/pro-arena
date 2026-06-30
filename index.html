@@ -834,7 +834,7 @@ n.scroll-hint {
     const FERIADOS = { 0:{1:'Confraternização'},3:{21:'Tiradentes'},5:{26:'Corpus Christi'},9:{12:'N. Sra. Aparecida'},10:{2:'Finados',15:'Proclamação',20:'Consciência Negra'},11:{25:'Natal'} };
     const PIX_CHAVE = 'pro.arena@exemplo.com.br'; const PIX_VALOR = 'R$ 100,00'; const SENHA_ADMIN = '99';
     let SENHA_ADMIN_SYNC = SENHA_ADMIN;
-    let state = { year: 2026, events: [], panelDay: null, panelMonth: null };
+    let state = { year: new Date().getFullYear(), events: [], panelDay: null, panelMonth: null };
     let reservaSlots = {}, estiloSelecionado = '', tipoJogoSelecionado = '', stepAtual = 1, reservaContext = null;
 
     function load() {
@@ -1304,6 +1304,13 @@ n.scroll-hint {
           supabaseSync.loadReservas().then(function() { render(); });
           supabaseSync.loadPedidos().then(function(pedidos) {
             if (pedidos) _pedidosCache = pedidos;
+          });
+          supabaseSync.loadProdutos().then(function(prods) {
+            if (prods && prods.length > 0) {
+              FISICOS.length = 0;
+              prods.forEach(function(p) { FISICOS.push(p); });
+              renderFisicos(catFisAtual || 'todos');
+            }
           });
         }
         // Migra dados locais automaticamente se tiver dados no localStorage
