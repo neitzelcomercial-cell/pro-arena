@@ -689,7 +689,7 @@ body {font-family:'Rajdhani',sans-serif;background:var(--dark);color:#e0e0e0;min
 }
 @keyframes fu{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 #storeSection .fu {animation:fu .4s ease both}.fu1{animation-delay:.05s}.fu2{animation-delay:.1s}.fu3{animation-delay:.15s}
-n.scroll-hint {
+.scroll-hint { display: none; }
     text-align: center; padding: 24px 16px 14px; font-size: clamp(13px, 3vw, 15px);
     font-weight: 600; color: rgba(255,255,255,0.25); letter-spacing: 1px;
     animation: scrollBounce 2s ease-in-out infinite; position: relative; z-index: 1;
@@ -707,6 +707,404 @@ n.scroll-hint {
 
 <canvas id="matrixCanvas"></canvas>
 
+<!-- ============================================================ -->
+<!-- LANDING PAGE - HISTORIA E APRESENTACAO DA ARENA -->
+<!-- ============================================================ -->
+<div id="landingSection">
+  <div class="landing-topbar">
+    <div class="landing-logo">
+      <div class="landing-icon">⚔️</div>
+      <span>ARENA <span style="color:var(--sand)">SQUAD</span></span>
+    </div>
+    <div class="landing-nav">
+      <a href="#landingHero">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#calendarSection">Agenda</a>
+      <a href="javascript:abrirLoja()">Loja</a>
+      <a href="#endereco">Contato</a>
+    </div>
+  </div>
+
+  <!-- HERO PRINCIPAL -->
+  <section class="landing-hero" id="landingHero">
+    <div class="landing-hero-bg"></div>
+    <div class="landing-hero-overlay"></div>
+    <div class="landing-hero-content">
+      <div class="landing-hero-icon">⚔️</div>
+      <h1 class="landing-hero-title">ARENA <span>SQUAD</span></h1>
+      <p class="landing-hero-sub">Mais que um esporte — uma experiência de estratégia, honra e superação</p>
+      <p class="landing-hero-quote">"O campo de batalha não define quem você é — ele revela."</p>
+      <div class="landing-hero-actions">
+        <a href="#calendarSection" class="landing-btn primary">📅 Agende seu Jogo</a>
+        <a href="#sobre" class="landing-btn secondary">◆ Conheça mais</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE / HISTORIA -->
+  <section class="landing-section" id="sobre">
+    <div class="landing-container">
+      <h2 class="landing-title">◆ NOSSA <span>HISTÓRIA</span></h2>
+      <div class="landing-divider"></div>
+      <div class="landing-grid-2">
+        <div>
+          <p class="landing-text">A <strong>Arena Squad</strong> nasceu da paixão pelo airsoft e do desejo de criar um espaço onde estratégia, trabalho em equipe e adrenalina se encontram. Fundada por entusiastas do esporte tático, nossa arena foi projetada para oferecer a experiência mais imersiva e realista possível.</p>
+          <p class="landing-text" style="margin-top:16px">Com cenários que simulam operações reais, desde resgates de reféns até batalhas em território inimigo, cada partida é uma nova missão. Acreditamos que o airsoft vai além do jogo — ele ensina disciplina, respeito e liderança.</p>
+          <p class="landing-text" style="margin-top:16px">Seja você um veterano tático ou alguém que nunca segurou uma réplica, aqui você encontra um ambiente seguro, organizado e cheio de desafios. Vista o uniforme, prepare seu equipamento e venha fazer parte dessa squad.</p>
+        </div>
+        <div>
+          <div class="landing-image-card">
+            <div style="font-size:80px;text-align:center;padding:30px">⚔️</div>
+            <div style="padding:16px;text-align:center">
+              <h3 style="font-family:Orbitron,monospace;font-size:14px;color:var(--green)">MISSÃO</h3>
+              <p style="font-size:13px;color:var(--sand);margin-top:6px">Proporcionar a melhor experiência em airsoft tático, promovendo respeito, trabalho em equipe e superação pessoal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE É AIRSOFT -->
+  <section class="landing-section" style="background:var(--dark-2);">
+    <div class="landing-container">
+      <h2 class="landing-title">◆ O QUE É <span>AIRSOFT?</span></h2>
+      <div class="landing-divider"></div>
+      <div class="landing-grid-3">
+        <div class="landing-info-card">
+          <div class="landing-info-icon">🎯</div>
+          <h3>Simulação Tática</h3>
+          <p>O airsoft é um esporte de simulação militar onde equipes competem em cenários táticos usando réplicas de armas que disparam bolinhas de 6mm. Segurança e fair play são prioridades.</p>
+        </div>
+        <div class="landing-info-card">
+          <div class="landing-info-icon">🧠</div>
+          <h3>Estratégia</h3>
+          <p>Cada partida é um desafio mental. Planejamento, comunicação e adaptação são essenciais para vencer. Não é sobre força — é sobre inteligência e trabalho em equipe.</p>
+        </div>
+        <div class="landing-info-card">
+          <div class="landing-info-icon">🤝</div>
+          <h3>Comunidade</h3>
+          <p>Mais que um esporte, o airsoft cria laços. Amizades, respeito mútuo e espírito de squad são os verdadeiros troféus que você leva pra vida.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES / O QUE ENSINA -->
+  <section class="landing-section">
+    <div class="landing-container">
+      <h2 class="landing-title">◆ O QUE O AIRSOFT <span>ENSINA</span></h2>
+      <div class="landing-divider"></div>
+      <div class="landing-grid-4">
+        <div class="landing-value-card">
+          <div class="landing-value-num">01</div>
+          <h3>Disciplina</h3>
+          <p>Regras, hierarquia e respeito às ordens são fundamentais no campo e na vida.</p>
+        </div>
+        <div class="landing-value-card">
+          <div class="landing-value-num">02</div>
+          <h3>Trabalho em Equipe</h3>
+          <p>Sozinho você vai rápido, em squad você vai longe. A vitória é de todos.</p>
+        </div>
+        <div class="landing-value-card">
+          <div class="landing-value-num">03</div>
+          <h3>Liderança</h3>
+          <p>Tomar decisões sob pressão e guiar sua equipe rumo ao objetivo.</p>
+        </div>
+        <div class="landing-value-card">
+          <div class="landing-value-num">04</div>
+          <h3>Superação</h3>
+          <p>Desafios existem para serem vencidos. A cada missão, você evolui.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE PROPORCIONA -->
+  <section class="landing-section" style="background:var(--dark-2);">
+    <div class="landing-container">
+      <h2 class="landing-title">◆ O QUE O ESPORTE <span>PROPORCIONA</span></h2>
+      <div class="landing-divider"></div>
+      <div class="landing-grid-3">
+        <div class="landing-info-card">
+          <div class="landing-info-icon">💪</div>
+          <h3>Condicionamento Físico</h3>
+          <p>Correr, agachar, mirar e se movimentar em terreno irregular — tudo isso contribui para um corpo mais saudável e preparado.</p>
+        </div>
+        <div class="landing-info-card">
+          <div class="landing-info-icon">🧘</div>
+          <h3>Saúde Mental</h3>
+          <p>O foco e a concentração exigidos durante as partidas ajudam a aliviar o estresse e melhorar a clareza mental.</p>
+        </div>
+        <div class="landing-info-card">
+          <div class="landing-info-icon">🌍</div>
+          <h3>Novas Amizades</h3>
+          <p>Conheça pessoas com os mesmos interesses, compartilhe experiências e construa amizades que vão além do campo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES (PREÇOS) -->
+  <section class="landing-section" id="valores">
+    <div class="landing-container">
+      <h2 class="landing-title">◆ <span>VALORES</span></h2>
+      <div class="landing-divider"></div>
+      <div class="landing-pricing">
+        <div class="landing-price-card">
+          <div class="landing-price-icon">⚔️</div>
+          <h3>Reserva</h3>
+          <div class="landing-price-value">R$ 60</div>
+          <p>Valor para garantir seu horário</p>
+        </div>
+        <div class="landing-price-card featured">
+          <div class="landing-price-icon">🏆</div>
+          <h3>Campo</h3>
+          <div class="landing-price-value">R$ 40</div>
+          <p>Taxa de utilização da arena</p>
+          <div class="landing-price-total">Total: <strong>R$ 100</strong></div>
+        </div>
+        <div class="landing-price-card">
+          <div class="landing-price-icon">🎫</div>
+          <h3>Day Pass</h3>
+          <div class="landing-price-value">R$ 49,90</div>
+          <p>1 dia (8h) na Arena</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOTOS -->
+  <section class="landing-section" id="fotos" style="background:var(--dark-2);">
+    <div class="landing-container">
+      <h2 class="landing-title">◆ <span>FOTOS</span></h2>
+      <div class="landing-divider"></div>
+      <div class="landing-gallery">
+        <div class="landing-gallery-item" style="grid-column:span 2;grid-row:span 2">
+          <img src="logo-realista.jpeg" alt="Arena Squad" loading="lazy">
+        </div>
+        <div class="landing-gallery-item">
+          <img src="111.png" alt="Arena" loading="lazy">
+        </div>
+        <div class="landing-gallery-item">
+          <img src="ev1.png" alt="Equipamento" loading="lazy">
+        </div>
+        <div class="landing-gallery-item">
+          <img src="222.png" alt="Ação" loading="lazy">
+        </div>
+        <div class="landing-gallery-item">
+          <img src="valores-jogos.png" alt="Jogos" loading="lazy">
+        </div>
+        <div class="landing-gallery-item">
+          <img src="logo-verde.jpeg" alt="Logo" loading="lazy">
+        </div>
+        <div class="landing-gallery-item">
+          <img src="logo-calendario.jpeg" alt="Calendário" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENDEREÇO E REDES SOCIAIS -->
+  <section class="landing-section" id="endereco">
+    <div class="landing-container">
+      <h2 class="landing-title">◆ <span>CONTATO</span></h2>
+      <div class="landing-divider"></div>
+      <div class="landing-grid-2">
+        <div>
+          <div class="landing-contact-card">
+            <div class="landing-contact-item">
+              <span class="landing-contact-icon">📍</span>
+              <div>
+                <strong>Endereço</strong>
+                <p>Rua Arena Squad, 100 — Bairro Tático<br>Cidade Operacional — SP</p>
+              </div>
+            </div>
+            <div class="landing-contact-item">
+              <span class="landing-contact-icon">📱</span>
+              <div>
+                <strong>WhatsApp</strong>
+                <p>(47) 99999-9999</p>
+              </div>
+            </div>
+            <div class="landing-contact-item">
+              <span class="landing-contact-icon">📧</span>
+              <div>
+                <strong>E-mail</strong>
+                <p>pro.arena@exemplo.com.br</p>
+              </div>
+            </div>
+            <div class="landing-contact-item">
+              <span class="landing-contact-icon">🕐</span>
+              <div>
+                <strong>Funcionamento</strong>
+                <p>Ter-Sáb: 8h às 20h | Dom: 8h às 14h</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="landing-social-card">
+            <h3 style="font-family:Orbitron,monospace;font-size:16px;color:var(--green);margin-bottom:16px">◆ REDES SOCIAIS</h3>
+            <div class="landing-social-grid">
+              <a href="#" class="landing-social-btn" style="background:#25D366">📱 WhatsApp</a>
+              <a href="#" class="landing-social-btn" style="background:#E1306C">📸 Instagram</a>
+              <a href="#" class="landing-social-btn" style="background:#1877F2">📘 Facebook</a>
+              <a href="#" class="landing-social-btn" style="background:var(--green-dark)">▶️ YouTube</a>
+              <a href="#" class="landing-social-btn" style="background:var(--green-dark)">🎵 TikTok</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="landing-section" style="background:linear-gradient(135deg,var(--dark-2),var(--dark));text-align:center;padding:60px 20px">
+    <div class="landing-container">
+      <h2 style="font-family:Orbitron,monospace;font-size:clamp(22px,5vw,36px);color:var(--green);letter-spacing:2px">◆ VEM PRO <span style="color:var(--sand)">SQUAD</span></h2>
+      <div style="width:60px;height:2px;background:var(--green);margin:16px auto"></div>
+      <p style="font-size:clamp(16px,3vw,22px);color:var(--sand);font-weight:600;max-width:600px;margin:0 auto 24px">"A guerra não é vencida por aquele que atira primeiro, mas por aquele que nunca desiste do seu squad."</p>
+      <a href="#calendarSection" class="landing-btn primary" style="display:inline-block;font-size:16px;padding:14px 40px">📅 Agende Agora</a>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================ -->
+<!-- CSS DA LANDING PAGE -->
+<!-- ============================================================ -->
+<style>
+/* Landing Page Styles */
+#landingSection { position:relative; z-index:1; }
+.landing-topbar {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(10,10,10,0.9); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--glass-border);
+  padding:0 clamp(14px,3vw,28px); height:60px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.landing-logo { display:flex; align-items:center; gap:10px; font-family:Orbitron,monospace; font-size:clamp(14px,3vw,18px); color:var(--green); font-weight:400; letter-spacing:2px; }
+.landing-icon { width:34px;height:34px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px; }
+.landing-nav { display:flex;gap:4px; }
+.landing-nav a {
+  color:var(--sand); text-decoration:none; font-weight:600; font-size:12px;
+  padding:6px 12px; border-radius:8px; transition:var(--transition);
+  white-space:nowrap;
+}
+.landing-nav a:hover { background:var(--green-glass); color:var(--green); }
+
+/* Hero */
+.landing-hero {
+  position:relative; min-height:100vh; min-height:100dvh;
+  display:flex; align-items:center; justify-content:center;
+  padding:80px 20px 40px; overflow:hidden;
+}
+.landing-hero-bg {
+  position:absolute; inset:0;
+  background:url('logo-realista.jpeg') center/cover no-repeat;
+  filter:blur(2px) brightness(0.25);
+}
+.landing-hero-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(10,10,10,0.4) 0%,rgba(10,10,10,0.8) 50%,var(--dark) 100%);
+}
+.landing-hero-content { position:relative; z-index:2; text-align:center; max-width:700px; }
+.landing-hero-icon { font-size:64px; margin-bottom:16px; animation:float 3s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+.landing-hero-title { font-family:Orbitron,monospace;font-size:clamp(32px,8vw,56px);color:#fff;letter-spacing:4px;font-weight:400; }
+.landing-hero-title span { color:var(--green); }
+.landing-hero-sub { font-size:clamp(16px,3vw,22px);color:var(--sand);margin-top:12px;font-weight:500; }
+.landing-hero-quote { font-family:'Special Elite',monospace;font-size:clamp(14px,2vw,18px);color:var(--green-light);margin-top:20px;opacity:0.7;font-style:italic; }
+.landing-hero-actions { margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center; }
+
+.landing-btn {
+  padding:12px 28px; border-radius:12px; font-weight:700; font-size:14px;
+  text-decoration:none; display:inline-block; transition:var(--transition);
+  font-family:Rajdhani,sans-serif; letter-spacing:1px;
+}
+.landing-btn.primary { background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff; }
+.landing-btn.primary:hover { transform:translateY(-2px);box-shadow:0 0 30px rgba(34,197,94,0.3); }
+.landing-btn.secondary { background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--sand); }
+.landing-btn.secondary:hover { background:var(--green-glass);border-color:var(--green);color:var(--green); }
+
+/* Sections */
+.landing-section { padding:60px 20px; position:relative; }
+.landing-container { max-width:1100px; margin:0 auto; }
+.landing-title { font-family:Orbitron,monospace;font-size:clamp(22px,4vw,32px);color:#fff;letter-spacing:2px;text-align:center;font-weight:400; }
+.landing-title span { color:var(--green); }
+.landing-divider { width:60px;height:2px;background:var(--green);margin:12px auto 32px; }
+
+.landing-text { font-size:15px;line-height:1.8;color:var(--sand); }
+.landing-grid-2 { display:grid;grid-template-columns:1fr 1fr;gap:24px; }
+.landing-grid-3 { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+.landing-grid-4 { display:grid;grid-template-columns:repeat(4,1fr);gap:16px; }
+@media(max-width:768px){
+  .landing-grid-2,.landing-grid-3,.landing-grid-4 { grid-template-columns:1fr; }
+  .landing-nav a { font-size:10px;padding:4px 8px; }
+}
+
+/* Cards */
+.landing-image-card { background:var(--dark-3);border:1px solid var(--glass-border);border-radius:var(--radius);overflow:hidden; }
+.landing-info-card { background:var(--dark-3);border:1px solid var(--glass-border-2);border-radius:var(--radius);padding:28px 20px;text-align:center;transition:var(--transition); }
+.landing-info-card:hover { border-color:var(--green);transform:translateY(-4px);box-shadow:0 8px 30px rgba(34,197,94,0.1); }
+.landing-info-icon { font-size:40px;margin-bottom:12px; }
+.landing-info-card h3 { font-family:Orbitron,monospace;font-size:14px;color:var(--green);margin-bottom:8px; }
+.landing-info-card p { font-size:13px;color:var(--sand-dark);line-height:1.6; }
+
+/* Values */
+.landing-value-card { background:var(--dark-3);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px 16px;text-align:center;transition:var(--transition); }
+.landing-value-card:hover { border-color:var(--green);transform:translateY(-3px); }
+.landing-value-num { font-family:Orbitron,monospace;font-size:32px;font-weight:900;color:var(--green-glass);margin-bottom:6px; }
+.landing-value-card h3 { font-family:Orbitron,monospace;font-size:14px;color:var(--green);margin-bottom:6px; }
+.landing-value-card p { font-size:13px;color:var(--sand-dark);line-height:1.5; }
+
+/* Pricing */
+.landing-pricing { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:800px;margin:0 auto; }
+@media(max-width:600px){ .landing-pricing { grid-template-columns:1fr; } }
+.landing-price-card { background:var(--dark-3);border:1px solid var(--glass-border);border-radius:var(--radius);padding:28px 20px;text-align:center;transition:var(--transition); }
+.landing-price-card.featured { border-color:var(--green);background:linear-gradient(180deg,rgba(34,197,94,0.08),var(--dark-3)); }
+.landing-price-card:hover { transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.3); }
+.landing-price-icon { font-size:36px;margin-bottom:8px; }
+.landing-price-card h3 { font-family:Orbitron,monospace;font-size:14px;color:var(--green);margin-bottom:8px; }
+.landing-price-value { font-family:Orbitron,monospace;font-size:28px;font-weight:900;color:#fff;margin:8px 0; }
+.landing-price-card p { font-size:13px;color:var(--sand-dark); }
+.landing-price-total { margin-top:12px;padding-top:12px;border-top:1px solid var(--glass-border);font-size:14px;color:var(--sand); }
+.landing-price-total strong { color:var(--green-light);font-size:18px; }
+
+/* Gallery */
+.landing-gallery { display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:120px;gap:8px; }
+@media(max-width:600px){ .landing-gallery { grid-template-columns:repeat(2,1fr);grid-auto-rows:100px; } }
+.landing-gallery-item { overflow:hidden;border-radius:var(--radius-sm);border:1px solid var(--glass-border);cursor:pointer;transition:var(--transition); }
+.landing-gallery-item:hover { border-color:var(--green);transform:scale(1.02); }
+.landing-gallery-item img { width:100%;height:100%;object-fit:cover; }
+
+/* Contact */
+.landing-contact-card { background:var(--dark-3);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px; }
+.landing-contact-item { display:flex;gap:12px;align-items:flex-start;margin-bottom:16px; }
+.landing-contact-item:last-child { margin-bottom:0; }
+.landing-contact-icon { font-size:20px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--glass-bg);border-radius:8px;flex-shrink:0; }
+.landing-contact-item strong { font-size:13px;color:var(--green);display:block;margin-bottom:2px; }
+.landing-contact-item p { font-size:13px;color:var(--sand);line-height:1.4; }
+
+.landing-social-card { background:var(--dark-3);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px; }
+.landing-social-grid { display:grid;grid-template-columns:1fr 1fr;gap:8px; }
+.landing-social-btn { padding:10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700;font-size:12px;text-align:center;transition:var(--transition); }
+.landing-social-btn:hover { transform:translateY(-2px); }
+
+/* Scroll hint for landing */
+.landing-scroll-hint {
+  position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:3;
+  color:rgba(255,255,255,0.3);font-size:12px;font-weight:600;letter-spacing:1px;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  animation:scrollBounce2 2s ease-in-out infinite;
+}
+@keyframes scrollBounce2 { 0%,100%{transform:translateX(-50%) translateY(0);opacity:0.3} 50%{transform:translateX(-50%) translateY(6px);opacity:0.7} }
+</style>
+
+<div style="position:relative;z-index:2">
+<div class="landing-scroll-hint">↓ Role para ver o calendário</div>
+</div>
 
 <div id="calendarSection"><div class="topbar">
     <div class="topbar-brand">
@@ -722,8 +1120,6 @@ n.scroll-hint {
         <button onclick="nextYear()" style="background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--green);padding:7px 12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;font-family:Rajdhani,sans-serif;line-height:1;">▶</button>
     </div>
     </div>
-<div class="scroll-hint">↓ Role para ver o calendário</div>
-
 
 <div class="months-grid" id="monthsGrid"></div>
 
