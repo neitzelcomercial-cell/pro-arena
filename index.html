@@ -528,7 +528,12 @@ h1, h2, h3, h4, .font-military { font-family: 'Black Ops One', 'Orbitron', monos
 .btn-m { padding: 7px 22px; background: var(--green); border: none; border-radius: var(--radius-sm); color: #fff; font-weight: 700; font-size: 12px; font-family: 'Rajdhani', sans-serif; cursor: pointer; transition: all .3s; }
 .btn-m:hover { background: var(--green-dark); }
 
-#storeSection{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:#111;overflow-y:auto}
+#storeSection{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:#111;overflow-y:auto;-webkit-overflow-scrolling:touch}
+#calendarSection{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9998;background:var(--dark);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+#calendarSection .topbar{position:sticky;top:0;z-index:100}
+#calendarSection .months-grid{padding-bottom:40px}
+#calendarSection .side-panel{z-index:200}
+#calendarSection .modal-overlay{z-index:300}
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Special+Elite&display=swap');
 #storeSection * {margin:0;padding:0;box-sizing:border-box}
