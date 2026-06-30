@@ -528,16 +528,15 @@ h1, h2, h3, h4, .font-military { font-family: 'Black Ops One', 'Orbitron', monos
 .btn-m { padding: 7px 22px; background: var(--green); border: none; border-radius: var(--radius-sm); color: #fff; font-weight: 700; font-size: 12px; font-family: 'Rajdhani', sans-serif; cursor: pointer; transition: all .3s; }
 .btn-m:hover { background: var(--green-dark); }
 
-#storeSection{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:#111;overflow-y:auto;-webkit-overflow-scrolling:touch}
-#calendarSection{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9998;background:var(--dark);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
-#calendarSection .topbar{position:sticky;top:0;z-index:100}
+#storeSection{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:#111;overflow-y:auto;-webkit-overflow-scrolling:touch;transform:translateZ(0);backface-visibility:hidden}
+#calendarSection{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9998;background:var(--dark);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;transform:translateZ(0);backface-visibility:hidden}
+#calendarSection .topbar{position:sticky;top:0;z-index:100;transform:translateZ(0)}
 #calendarSection .months-grid{padding-bottom:40px}
 #calendarSection .side-panel{z-index:200}
 #calendarSection .modal-overlay{z-index:300}
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Special+Elite&display=swap');
 #storeSection * {margin:0;padding:0;box-sizing:border-box}
-:root{--green:#22c55e;--green-dark:#166534;--green-light:#4ade80;--green-glass:rgba(107,142,35,0.18);--green-glow:rgba(107,142,35,0.35);--red:#ef4444;--red-light:#f87171;--sand:#d4d4d4;--sand-dark:#a1a1aa;--dark:#111;--dark-2:#1a1a1a;--dark-3:#222;--glass-bg:rgba(255,255,255,0.06);--glass-border:rgba(255,255,255,0.10);--radius:16px;--radius-sm:10px;--radius-xs:6px}
+:root{--green:#6B8E23;--green-dark:#4A5D23;--green-light:#8FAA4D;--green-glass:rgba(107,142,35,0.18);--green-glow:rgba(107,142,35,0.35);--red:#8B3A3A;--red-light:#A52A2A;--sand:#C4B998;--sand-dark:#8B8273;--dark:#1A1A0E;--dark-2:#222415;--dark-3:#2D301E;--glass-bg:rgba(45,48,30,0.4);--glass-border:rgba(196,185,152,0.12);--radius:16px;--radius-sm:10px;--radius-xs:6px}
 html {scroll-behavior:smooth}
 body {font-family:'Rajdhani',sans-serif;background:var(--dark);color:#e0e0e0;min-height:100vh;overflow-x:hidden}
 #storeSection #skullsCanvas {position:fixed;inset:0;z-index:0;width:100vw;height:100vh;pointer-events:none;opacity:.12}
