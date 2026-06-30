@@ -1308,7 +1308,7 @@ n.scroll-hint {
         }
         // Migra dados locais automaticamente se tiver dados no localStorage
         setTimeout(function() {
-          if (false) {
+          if (true) {
             // So migra se tiver dados locais que ainda nao estao no servidor
             var reservasLocais = JSON.parse(localStorage.getItem('proarena_reservas') || '{}');
             if (reservasLocais.reservas && Object.keys(reservasLocais.reservas).length > 0) {
