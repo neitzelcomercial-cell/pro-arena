@@ -1122,8 +1122,9 @@ body {font-family:'Rajdhani',sans-serif;background:var(--dark);color:#e0e0e0;min
 
 .landing-social-card { background:var(--dark-3);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px; }
 .landing-social-grid { display:grid;grid-template-columns:1fr 1fr;gap:8px; }
-.landing-social-btn { padding:10px;border-radius:8px;color:var(--sand);text-decoration:none;font-weight:700;font-size:12px;text-align:center;transition:var(--transition);border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:blur(8px); }
-.landing-social-btn:hover { background:var(--glass-bg-hover);border-color:var(--green);color:var(--green);transform:translateY(-2px); }
+.landing-social-btn { padding:10px;border-radius:8px;color:var(--sand);text-decoration:none;font-weight:700;font-size:12px;text-align:center;border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:blur(8px); }
+.landing-social-btn:hover { border-color:var(--glass-border-hover);background:var(--glass-bg-hover); }
+.landing-contact-icon { font-size:20px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:8px;flex-shrink:0; }
 
 /* Scroll hint for landing */
 .landing-scroll-hint {
@@ -1141,8 +1142,7 @@ body {font-family:'Rajdhani',sans-serif;background:var(--dark);color:#e0e0e0;min
 
 <div id="calendarSection" style="display:none"><div class="topbar">
     <div class="topbar-brand">
-        <div class="icon">⚔️</div>
-        <div><h1>ARENA <span>SQUAD</span></h1></div>
+        <img src="logoedit.jpeg" alt="Arena Squad" style="height:38px;border-radius:6px;">
     </div>
     <div class="topbar-actions">
         <button onclick="openAdmin()" style="background:rgba(139,58,58,0.2);border:1px solid rgba(139,58,58,0.3);color:var(--red-light);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:Rajdhani,sans-serif;">⚙️ Admin</button>
@@ -1826,7 +1826,9 @@ body {font-family:'Rajdhani',sans-serif;background:var(--dark);color:#e0e0e0;min
 
 
 <header class="topbar">
-  <a href="#" class="topbar-logo">⚔️ <span>ARENA</span> SQUAD <span class="badge">STORE</span></a>
+  <div class="topbar-brand">
+    <img src="logoedit.jpeg" alt="Arena Squad" style="height:38px;border-radius:6px;">
+  </div>
   <nav class="topbar-right">
     <button class="topbar-link admin-link" onclick="openAdmin()">◆ Admin</button>
     <button class="cart-btn" onclick="toggleCart()">◆ <span id="cartLabel">0</span><span class="cart-count" id="cartCount">0</span></button>
@@ -1917,27 +1919,27 @@ body {font-family:'Rajdhani',sans-serif;background:var(--dark);color:#e0e0e0;min
 <script>
 // === VARIAVEIS GLOBAIS ===
 const FISICOS = [
-  {id:'a1',cat:'armamentos',nome:'Réplica G36C',desc:'AEG 300fps',preco:599.90,ico:'◆',badge:null,est:5},
-  {id:'a2',cat:'armamentos',nome:'Réplica M4A1',desc:'AEG 380fps metal',preco:749.90,ico:'◆',badge:'Premium',est:3},
-  {id:'a3',cat:'armamentos',nome:'Pistola G17 GBB',desc:'Gás 280fps',preco:399.90,ico:'◆',badge:null,est:4},
-  {id:'e1',cat:'equipamentos',nome:'Patch Pro Arena',desc:'Bordado 8x5cm',preco:29.90,ico:'◆',badge:'Novo',est:15},
-  {id:'e2',cat:'equipamentos',nome:'Chaveiro Tático',desc:'Aço personalizado',preco:24.90,ico:'◆',badge:null,est:25},
-  {id:'e3',cat:'equipamentos',nome:'Kit Adesivos 10un',desc:'Vinil resistente',preco:19.90,ico:'◆',badge:'Mais vendido',est:30},
-  {id:'e4',cat:'equipamentos',nome:'Óculos Proteção',desc:'Antiembaçante',preco:59.90,ico:'◆',badge:null,est:8},
-  {id:'e5',cat:'equipamentos',nome:'Rádio Comunicador',desc:'2km recarregável',preco:129.90,ico:'◆',badge:null,est:6},
-  {id:'m1',cat:'municao',nome:'Bolinha 0.20g 2000un',desc:'Padrão treino',preco:39.90,ico:'◆',badge:null,est:40},
-  {id:'m2',cat:'municao',nome:'Bolinha 0.25g 2000un',desc:'Precisão +350fps',preco:49.90,ico:'◆',badge:null,est:35},
-  {id:'m3',cat:'municao',nome:'Bolinha 0.28g 1000un',desc:'Sniper DMR',preco:34.90,ico:'◆',badge:'Precisão',est:20},
-  {id:'m4',cat:'municao',nome:'Bolinha Biodegradável',desc:'0.23g 2000un eco',preco:54.90,ico:'◆',badge:'Eco',est:25},
-  {id:'r1',cat:'roupas',nome:'Camiseta Tactical',desc:'Dry-fit estampada',preco:89.90,ico:'◆',badge:null,est:10},
-  {id:'r2',cat:'roupas',nome:'Moletom Operações',desc:'Capuz bordado',preco:149.90,ico:'◆',badge:'Pré-venda',est:5},
-  {id:'r3',cat:'roupas',nome:'Camo Bandana',desc:'Shemagh verde',preco:34.90,ico:'◆',badge:null,est:20},
-  {id:'r4',cat:'roupas',nome:'Boné Squad',desc:'Trucker bordado',preco:69.90,ico:'◆',badge:null,est:8},
-  {id:'r5',cat:'roupas',nome:'Luvas Táticas',desc:'Dedos livres',preco:44.90,ico:'◆',badge:null,est:12},
-  {id:'r6',cat:'roupas',nome:'Jaqueta BDU',desc:'Cotton Ripstop',preco:199.90,ico:'◆',badge:null,est:4},
-  {id:'o1',cat:'outros',nome:'Caneca Tática',desc:'400ml micro-ondas',preco:44.90,ico:'◆',badge:null,est:12},
-  {id:'o2',cat:'outros',nome:'Pulseira Identificação',desc:'Silicone gravado',preco:14.90,ico:'◆',badge:null,est:30},
-  {id:'o3',cat:'outros',nome:'Porta-Carregador',desc:'Suporte cinto',preco:34.90,ico:'◆',badge:null,est:15},
+  {id:'a1',cat:'armamentos',nome:'Réplica G36C',desc:'AEG 300fps',preco:599.90,ico:'◆',badge:null,est:5,imagem:'produto1.jpeg'},
+  {id:'a2',cat:'armamentos',nome:'Réplica M4A1',desc:'AEG 380fps metal',preco:749.90,ico:'◆',badge:'Premium',est:3,imagem:'produto1.jpeg'},
+  {id:'a3',cat:'armamentos',nome:'Pistola G17 GBB',desc:'Gás 280fps',preco:399.90,ico:'◆',badge:null,est:4,imagem:'produto1.jpeg'},
+  {id:'e1',cat:'equipamentos',nome:'Patch Pro Arena',desc:'Bordado 8x5cm',preco:29.90,ico:'◆',badge:'Novo',est:15,imagem:'produto1.jpeg'},
+  {id:'e2',cat:'equipamentos',nome:'Chaveiro Tático',desc:'Aço personalizado',preco:24.90,ico:'◆',badge:null,est:25,imagem:'produto1.jpeg'},
+  {id:'e3',cat:'equipamentos',nome:'Kit Adesivos 10un',desc:'Vinil resistente',preco:19.90,ico:'◆',badge:'Mais vendido',est:30,imagem:'produto1.jpeg'},
+  {id:'e4',cat:'equipamentos',nome:'Óculos Proteção',desc:'Antiembaçante',preco:59.90,ico:'◆',badge:null,est:8,imagem:'produto1.jpeg'},
+  {id:'e5',cat:'equipamentos',nome:'Rádio Comunicador',desc:'2km recarregável',preco:129.90,ico:'◆',badge:null,est:6,imagem:'produto1.jpeg'},
+  {id:'m1',cat:'municao',nome:'Bolinha 0.20g 2000un',desc:'Padrão treino',preco:39.90,ico:'◆',badge:null,est:40,imagem:'produto1.jpeg'},
+  {id:'m2',cat:'municao',nome:'Bolinha 0.25g 2000un',desc:'Precisão +350fps',preco:49.90,ico:'◆',badge:null,est:35,imagem:'produto1.jpeg'},
+  {id:'m3',cat:'municao',nome:'Bolinha 0.28g 1000un',desc:'Sniper DMR',preco:34.90,ico:'◆',badge:'Precisão',est:20,imagem:'produto1.jpeg'},
+  {id:'m4',cat:'municao',nome:'Bolinha Biodegradável',desc:'0.23g 2000un eco',preco:54.90,ico:'◆',badge:'Eco',est:25,imagem:'produto1.jpeg'},
+  {id:'r1',cat:'roupas',nome:'Camiseta Tactical',desc:'Dry-fit estampada',preco:89.90,ico:'◆',badge:null,est:10,imagem:'produto1.jpeg'},
+  {id:'r2',cat:'roupas',nome:'Moletom Operações',desc:'Capuz bordado',preco:149.90,ico:'◆',badge:'Pré-venda',est:5,imagem:'produto1.jpeg'},
+  {id:'r3',cat:'roupas',nome:'Camo Bandana',desc:'Shemagh verde',preco:34.90,ico:'◆',badge:null,est:20,imagem:'produto1.jpeg'},
+  {id:'r4',cat:'roupas',nome:'Boné Squad',desc:'Trucker bordado',preco:69.90,ico:'◆',badge:null,est:8,imagem:'produto1.jpeg'},
+  {id:'r5',cat:'roupas',nome:'Luvas Táticas',desc:'Dedos livres',preco:44.90,ico:'◆',badge:null,est:12,imagem:'produto1.jpeg'},
+  {id:'r6',cat:'roupas',nome:'Jaqueta BDU',desc:'Cotton Ripstop',preco:199.90,ico:'◆',badge:null,est:4,imagem:'produto1.jpeg'},
+  {id:'o1',cat:'outros',nome:'Caneca Tática',desc:'400ml micro-ondas',preco:44.90,ico:'◆',badge:null,est:12,imagem:'produto1.jpeg'},
+  {id:'o2',cat:'outros',nome:'Pulseira Identificação',desc:'Silicone gravado',preco:14.90,ico:'◆',badge:null,est:30,imagem:'produto1.jpeg'},
+  {id:'o3',cat:'outros',nome:'Porta-Carregador',desc:'Suporte cinto',preco:34.90,ico:'◆',badge:null,est:15,imagem:'produto1.jpeg'},
 ];
 const ONLINE = [
   {id:'p1',cat:'vouchers',nome:'Day Pass',desc:'1 dia (8h) na Arena',preco:49.90,ico:'◆',badge:null},
