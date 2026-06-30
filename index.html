@@ -931,6 +931,16 @@ body {font-family:'Rajdhani',sans-serif;background:var(--dark);color:#e0e0e0;min
     </div>
   </section>
 
+  <!-- CTA FINAL -->
+  <section class="landing-section" style="background:linear-gradient(135deg,var(--dark-2),var(--dark));text-align:center;padding:60px 20px">
+    <div class="landing-container">
+      <h2 style="font-family:Orbitron,monospace;font-size:clamp(22px,5vw,36px);color:var(--green);letter-spacing:2px">◆ VEM PRO <span style="color:var(--sand)">SQUAD</span></h2>
+      <div style="width:60px;height:2px;background:var(--green);margin:16px auto"></div>
+      <p style="font-size:clamp(16px,3vw,22px);color:var(--sand);font-weight:600;max-width:600px;margin:0 auto 24px">"A guerra não é vencida por aquele que atira primeiro, mas por aquele que nunca desiste do seu squad."</p>
+      <a href="javascript:abrirCalendario()" class="landing-btn primary" style="display:inline-block;font-size:16px;padding:14px 40px">📅 Agende Agora</a>
+    </div>
+  </section>
+
   <!-- ENDEREÇO E REDES SOCIAIS -->
   <section class="landing-section" id="endereco">
     <div class="landing-container">
@@ -973,25 +983,15 @@ body {font-family:'Rajdhani',sans-serif;background:var(--dark);color:#e0e0e0;min
           <div class="landing-social-card">
             <h3 style="font-family:Orbitron,monospace;font-size:16px;color:var(--green);margin-bottom:16px">◆ REDES SOCIAIS</h3>
             <div class="landing-social-grid">
-              <a href="#" class="landing-social-btn" style="background:#25D366">📱 WhatsApp</a>
-              <a href="#" class="landing-social-btn" style="background:#E1306C">📸 Instagram</a>
-              <a href="#" class="landing-social-btn" style="background:#1877F2">📘 Facebook</a>
-              <a href="#" class="landing-social-btn" style="background:var(--green-dark)">▶️ YouTube</a>
-              <a href="#" class="landing-social-btn" style="background:var(--green-dark)">🎵 TikTok</a>
+              <a href="#" class="landing-social-btn" style="background:rgba(37,211,102,0.15);color:var(--sand);border:1px solid rgba(37,211,102,0.2)">📱 WhatsApp</a>
+              <a href="#" class="landing-social-btn" style="background:rgba(225,48,108,0.15);color:var(--sand);border:1px solid rgba(225,48,108,0.2)">📸 Instagram</a>
+              <a href="#" class="landing-social-btn" style="background:rgba(24,119,242,0.15);color:var(--sand);border:1px solid rgba(24,119,242,0.2)">📘 Facebook</a>
+              <a href="#" class="landing-social-btn" style="background:rgba(107,142,35,0.2);color:var(--sand);border:1px solid var(--glass-border)">▶️ YouTube</a>
+              <a href="#" class="landing-social-btn" style="background:rgba(107,142,35,0.2);color:var(--sand);border:1px solid var(--glass-border)">🎵 TikTok</a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="landing-section" style="background:linear-gradient(135deg,var(--dark-2),var(--dark));text-align:center;padding:60px 20px">
-    <div class="landing-container">
-      <h2 style="font-family:Orbitron,monospace;font-size:clamp(22px,5vw,36px);color:var(--green);letter-spacing:2px">◆ VEM PRO <span style="color:var(--sand)">SQUAD</span></h2>
-      <div style="width:60px;height:2px;background:var(--green);margin:16px auto"></div>
-      <p style="font-size:clamp(16px,3vw,22px);color:var(--sand);font-weight:600;max-width:600px;margin:0 auto 24px">"A guerra não é vencida por aquele que atira primeiro, mas por aquele que nunca desiste do seu squad."</p>
-      <a href="javascript:abrirCalendario()" class="landing-btn primary" style="display:inline-block;font-size:16px;padding:14px 40px">📅 Agende Agora</a>
     </div>
   </section>
 </div>
@@ -1114,8 +1114,8 @@ body {font-family:'Rajdhani',sans-serif;background:var(--dark);color:#e0e0e0;min
 
 .landing-social-card { background:var(--dark-3);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px; }
 .landing-social-grid { display:grid;grid-template-columns:1fr 1fr;gap:8px; }
-.landing-social-btn { padding:10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700;font-size:12px;text-align:center;transition:var(--transition); }
-.landing-social-btn:hover { transform:translateY(-2px); }
+.landing-social-btn { padding:10px;border-radius:8px;color:var(--sand);text-decoration:none;font-weight:700;font-size:12px;text-align:center;transition:var(--transition);border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:blur(8px); }
+.landing-social-btn:hover { background:var(--glass-bg-hover);border-color:var(--green);color:var(--green);transform:translateY(-2px); }
 
 /* Scroll hint for landing */
 .landing-scroll-hint {
