@@ -2044,9 +2044,9 @@ function renderFisicos(cat) {
     var be = p.badge ? '<span style="position:absolute;bottom:6px;right:6px;font-size:7px;font-weight:700;background:#ff6f00;color:#fff;padding:2px 6px;border-radius:3px;">' + p.badge + '</span>' : '';
     var descExibida = p.descCurta || p.desc || 'Sem descricao';
     var imgSrc = p.imagem || '';
-    // Converte caminho do storage em URL pública
-    if (imgSrc && !imgSrc.startsWith('data:') && !imgSrc.startsWith('http')) {
-      imgSrc = 'https://fjuxuqcvuafshfaejggl.supabase.co/storage/v1/object/public/produtos/' + imgSrc;
+    // Se comeca com 'produtos/' busca no Supabase Storage, senao busca local
+    if (imgSrc && imgSrc.startsWith('produtos/')) {
+      imgSrc = 'https://fjuxuqcvuafshfaejggl.supabase.co/storage/v1/object/public/' + imgSrc;
     }
     var imgHtml = imgSrc ? '<img src="' + imgSrc + '" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" alt="' + p.nome + '" loading="lazy">' : '<div style="font-size:42px;background:rgba(255,255,255,0.03);width:100%;height:100%;display:flex;align-items:center;justify-content:center">' + p.ico + '</div>';
     return '<div class="product-card fu"><div class="product-img" onclick="verDetalhe(\'' + p.id + '\')" style="cursor:pointer;overflow:hidden;position:relative">' + imgHtml + be + '</div><div class="product-info"><h3 style="cursor:pointer" onclick="verDetalhe(\'' + p.id + '\')">' + p.nome + ' ◆</h3><div class="desc">' + descExibida + '</div><div class="stock-row"><span class="stock-num ' + cl + '">◆ ' + (s ? 'ESGOTADO' : d + ' unid.') + '</span>' + (s ? '' : '<span class="bar"><span class="fill" style="width:' + pc + '%;background:' + ce + ';"></span></span>') + '</div><div class="prod-bottom"><div class="price">R$ ' + p.preco.toFixed(2) + '</div><button class="btn-add" onclick="addCart(\'' + p.id + '\')"' + (s ? ' disabled' : '') + '>' + (s ? '✕' : '+') + '</button></div></div></div>';
@@ -2061,8 +2061,8 @@ function verDetalhe(id) {
   var disp = d >= 999 ? '∞ Ilimitado' : d === 0 ? '⬛ Esgotado' : '◆ ' + d + ' em estoque';
   var html = '<div style="text-align:center;padding:10px">';
   var imgSrc = p.imagem || '';
-  if (imgSrc && !imgSrc.startsWith('data:') && !imgSrc.startsWith('http')) {
-    imgSrc = 'https://fjuxuqcvuafshfaejggl.supabase.co/storage/v1/object/public/produtos/' + imgSrc;
+  if (imgSrc && imgSrc.startsWith('produtos/')) {
+    imgSrc = 'https://fjuxuqcvuafshfaejggl.supabase.co/storage/v1/object/public/' + imgSrc;
   }
   if (imgSrc) {
     html += '<div style="width:100%;height:200px;overflow:hidden;border-radius:var(--radius-sm);margin-bottom:10px;background:var(--dark-3)"><img src="' + imgSrc + '" style="width:100%;height:100%;object-fit:cover" alt="' + p.nome + '" loading="lazy"></div>';
