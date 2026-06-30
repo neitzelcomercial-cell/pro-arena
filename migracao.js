@@ -1,22 +1,19 @@
 // ============================================================
-// ARENA SQUAD - Script de Migracao
-// Envia dados do localStorage para o Supabase
+// ARENA SQUAD - Script de Migracao v2
+// Envia dados do localStorage + imagens para o Supabase
 // ============================================================
 
 async function migrarDadosLocais() {
-  console.log('%c=== ARENA SQUAD - MIGRACAO DE DADOS ===', 'font-size:16px;font-weight:bold;color:#22c55e');
+  console.log('%c=== ARENA SQUAD - MIGRACAO DE DADOS v2 ===', 'font-size:16px;font-weight:bold;color:#22c55e');
 
   if (!window.supabaseSync) {
     console.error('❌ supabaseSync nao encontrado');
     return;
   }
 
-  // Tenta conectar
   if (!supabaseSync.ready()) {
     console.log('⏳ Aguardando conexao Supabase...');
-    try {
-      await supabaseSync.init();
-    } catch(e) {
+    try { await supabaseSync.init(); } catch(e) {
       console.error('❌ Falha ao conectar:', e);
       return;
     }
@@ -24,14 +21,10 @@ async function migrarDadosLocais() {
 
   if (!supabaseSync.ready()) {
     console.error('❌ Supabase nao esta pronto.');
-    console.log('Execute o SQL de setup no Supabase primeiro:');
-    console.log('1. Abra supabase_setup_completo.sql');
-    console.log('2. Cole no SQL Editor do Supabase');
-    console.log('3. Execute (Ctrl+Enter)');
     return;
   }
 
-  console.log('✅ Supabase conectado. Iniciando migracao...\n');
+  console.log('✅ Supabase conectado.\n');
 
   var totalMigrado = 0;
   var erros = 0;
@@ -41,11 +34,9 @@ async function migrarDadosLocais() {
   if (typeof reservaSlots !== 'undefined' && Object.keys(reservaSlots).length > 0) {
     await supabaseSync.saveAllReservas(reservaSlots);
     var qtd = Object.keys(reservaSlots).length;
-    console.log(`  ✅ ${qtd} reservas migradas`);
+    console.log('  ✅ ' + qtd + ' reservas migradas');
     totalMigrado += qtd;
-  } else {
-    console.log('  ⏭️ Nenhuma reserva local');
-  }
+  } else { console.log('  ⏭️ Nenhuma reserva local'); }
 
   // 2. PEDIDOS
   console.log('📦 [2/5] Migrando pedidos...');
@@ -53,13 +44,10 @@ async function migrarDadosLocais() {
   if (pedidosLocais.length > 0) {
     for (var p of pedidosLocais) {
       var ok = await supabaseSync.savePedido(p);
-      if (ok) totalMigrado++;
-      else erros++;
+      if (ok) totalMigrado++; else erros++;
     }
-    console.log(`  ✅ ${pedidosLocais.length} pedidos migrados`);
-  } else {
-    console.log('  ⏭️ Nenhum pedido local');
-  }
+    console.log('  ✅ ' + pedidosLocais.length + ' pedidos migrados');
+  } else { console.log('  ⏭️ Nenhum pedido local'); }
 
   // 3. ESTOQUE
   console.log('📊 [3/5] Migrando estoque...');
@@ -68,59 +56,60 @@ async function migrarDadosLocais() {
   if (chaves.length > 0) {
     for (var k of chaves) {
       var ok = await supabaseSync.updateEstoque(k, estoqueLocal[k]);
-      if (ok) totalMigrado++;
-      else erros++;
+      if (ok) totalMigrado++; else erros++;
     }
-    console.log(`  ✅ ${chaves.length} itens de estoque migrados`);
-  } else {
-    console.log('  ⏭️ Nenhum estoque local');
-  }
+    console.log('  ✅ ' + chaves.length + ' itens de estoque migrados');
+  } else { console.log('  ⏭️ Nenhum estoque local'); }
 
-  // 4. PRODUTOS
+  // 4. PRODUTOS + IMAGENS
   console.log('🏷️ [4/5] Migrando produtos...');
   var produtosLocais = JSON.parse(localStorage.getItem('arenaFisicos') || '[]');
   if (produtosLocais.length > 0) {
+    // Para cada produto, verifica se tem imagem em base64 e faz upload
+    for (var prod of produtosLocais) {
+      if (prod.imagem && prod.imagem.startsWith('data:')) {
+        // Converte base64 para blob e envia ao Storage
+        try {
+          var resp = await fetch(prod.imagem);
+          var blob = await resp.blob();
+          var ext = blob.type.split('/')[1] || 'png';
+          var path = 'produtos/' + prod.id + '.' + ext;
+          var url = await supabaseSync.uploadImagem(blob, path);
+          if (url) prod.imagem = path; // salva ref, nao URL completa
+        } catch(e) {
+          console.warn('  ⚠️ Erro upload imagem de ' + prod.nome + ': ' + (e.message||e));
+        }
+      }
+    }
     var ok = await supabaseSync.saveAllProdutos(produtosLocais);
     if (ok) {
-      console.log(`  ✅ ${produtosLocais.length} produtos migrados`);
+      console.log('  ✅ ' + produtosLocais.length + ' produtos migrados');
       totalMigrado += produtosLocais.length;
     }
-  } else {
-    console.log('  ⏭️ Nenhum produto local');
-  }
+  } else { console.log('  ⏭️ Nenhum produto local'); }
 
   // 5. CONFIG
   console.log('⚙️ [5/5] Migrando configuracoes...');
   var pixLocal = localStorage.getItem('arenaPix');
   if (pixLocal) {
     var ok = await supabaseSync.saveConfig('pix', pixLocal);
-    if (ok) {
-      console.log('  ✅ Chave PIX migrada');
-      totalMigrado++;
-    }
+    if (ok) { console.log('  ✅ Chave PIX migrada'); totalMigrado++; }
   }
 
-  console.log(`\n%c=== MIGRACAO CONCLUIDA ===`, 'font-size:14px;font-weight:bold;color:#22c55e');
-  console.log(`Total: ${totalMigrado} itens | Erros: ${erros}`);
-  console.log('%cAgora recarregue a pagina. Os dados serao sincronizados!', 'color:#eab308');
+  console.log('\n%c=== MIGRACAO CONCLUIDA ===', 'font-size:14px;font-weight:bold;color:#22c55e');
+  console.log('Total: ' + totalMigrado + ' itens | Erros: ' + erros);
 
   // Recarrega dados do servidor
   await supabaseSync.loadReservas();
   await supabaseSync.loadPedidos();
-
-  // Atualiza variavel global est
   var estData = await supabaseSync.loadEstoque();
   if (estData && typeof window.est !== 'undefined') {
-    Object.keys(window.est).forEach(function(k) { delete window.est[k]; });
+    Object.keys(window.est).forEach(k => delete window.est[k]);
     Object.assign(window.est, estData);
   }
 
   return { total: totalMigrado, erros: erros };
 }
 
-// Atalho
 window.migrar = migrarDadosLocais;
-
-console.log('%c📋 Para migrar dados locais para o Supabase:', 'font-size:12px;color:#888');
-console.log('%c  1. Execute o SQL de setup no Supabase (supabase_setup_completo.sql)', 'font-size:12px;color:#888');
-console.log('%c  2. Digite no console: migrar()', 'font-size:14px;font-weight:bold;color:#22c55e');
+console.log('%c📋 Para migrar dados para o Supabase, digite: migrar()', 'font-size:14px;font-weight:bold;color:#22c55e');

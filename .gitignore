@@ -1,0 +1,8 @@
+# Arquivos locais que nao sobem para o GitHub Pages
+*.png
+*.jpeg
+*.jpg
+*.gif
+*.ico
+.DS_Store
+Thumbs.db
