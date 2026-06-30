@@ -1111,6 +1111,12 @@ body {font-family:'Rajdhani',sans-serif;background:var(--dark);color:#e0e0e0;min
 .landing-gallery-item { overflow:hidden;border-radius:var(--radius-sm);border:1px solid var(--glass-border);cursor:pointer;transition:var(--transition); }
 .landing-gallery-item:hover { border-color:var(--green);transform:scale(1.02); }
 .landing-gallery-item img { width:100%;height:100%;object-fit:cover; }
+/* Lightbox */
+#lightboxOverlay { position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:none;align-items:center;justify-content:center;padding:20px; }
+#lightboxOverlay.open { display:flex; }
+#lightboxImg { max-width:95vw;max-height:90vh;border-radius:var(--radius);box-shadow:0 0 60px rgba(0,0,0,0.8);object-fit:contain; }
+#lightboxClose { position:fixed;top:20px;right:25px;font-size:32px;color:#fff;cursor:pointer;background:rgba(255,255,255,0.1);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.15);transition:var(--transition);z-index:9999999; }
+#lightboxClose:hover { background:rgba(255,255,255,0.2);transform:rotate(90deg); }
 
 /* Contact */
 .landing-contact-card { background:var(--dark-3);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px; }
@@ -2578,5 +2584,30 @@ function fecharStore(){
 </div><!-- /storeSection -->
 
 
+<!-- LIGHTBOX -->
+<div id="lightboxOverlay" onclick="fecharLightbox()">
+  <span id="lightboxClose" onclick="fecharLightbox()">✕</span>
+  <img id="lightboxImg" src="" alt="">
+</div>
+<script>
+function abrirLightbox(src){
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxOverlay').classList.add('open');
+}
+function fecharLightbox(){
+  document.getElementById('lightboxOverlay').classList.remove('open');
+  document.getElementById('lightboxImg').src = '';
+}
+// Adiciona clique nas imagens da galeria
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.landing-gallery-item img').forEach(function(img){
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', function(e){
+      e.stopPropagation();
+      abrirLightbox(this.src);
+    });
+  });
+});
+</script>
 </body>
 </html>
