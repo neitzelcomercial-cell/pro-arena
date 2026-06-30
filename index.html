@@ -130,6 +130,10 @@ h1, h2, h3, h4, .font-military { font-family: 'Black Ops One', 'Orbitron', monos
         .year-nav { display: flex; gap: 6px; flex-wrap: wrap; }
         .year-nav button { background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--glass-border); color: var(--green); padding: clamp(6px, 1.5vw, 8px) clamp(10px, 2.5vw, 16px); border-radius: 10px; cursor: pointer; font-size: clamp(11px, 2.5vw, 13px); font-weight: 700; font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 1px; transition: all .25s; }
         .year-nav button:hover { background: var(--green-glass); border-color: var(--glass-border-2); transform: translateY(-1px); }
+        .calendar-store-btn { display:flex; justify-content:center; padding:16px clamp(12px,3vw,28px); position:relative; z-index:1; }
+        .btn-store-center { background:linear-gradient(135deg,var(--green-dark),var(--green)); color:#fff; border:none; padding:14px 40px; border-radius:12px; cursor:pointer; font-size:15px; font-weight:700; font-family:'Rajdhani',sans-serif; letter-spacing:2px; text-transform:uppercase; transition:var(--transition); box-shadow:0 4px 24px rgba(107,142,35,0.3); }
+        .btn-store-center:hover { transform:translateY(-3px); box-shadow:0 8px 40px rgba(107,142,35,0.5); }
+        .btn-store-center:active { transform:scale(.97); }
         .year-nav .btn-today { background: linear-gradient(135deg, var(--green-dark), var(--green)); color: #fff; border: none; box-shadow: 0 0 16px rgba(107,142,35,0.12); }
         .year-nav .btn-today:hover { box-shadow: 0 0 28px rgba(107,142,35,0.25); }
 
@@ -1173,14 +1177,17 @@ body {font-family:'Rajdhani',sans-serif;background:var(--dark);color:#e0e0e0;min
         <div><h1>ARENA <span>SQUAD</span></h1></div>
     </div>
     <div class="topbar-actions">
-        <button onclick="abrirLoja()" style="background:var(--green-glass);border:1px solid var(--green);color:var(--green);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:Rajdhani,sans-serif;letter-spacing:0.5px">🛒 Loja</button>
-        <button onclick="openAdmin()" style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);color:var(--red);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:Rajdhani,sans-serif;">⚙️ Admin</button>
+        <button onclick="openAdmin()" style="background:rgba(139,58,58,0.2);border:1px solid rgba(139,58,58,0.3);color:var(--red-light);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:Rajdhani,sans-serif;">⚙️ Admin</button>
         <button class="btn-today" onclick="goToday()">◆ Atual</button>
         <button onclick="prevYear()" style="background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--green);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:Rajdhani,sans-serif;line-height:1;">◀</button>
         <button onclick="fecharCalendario()" style="background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--sand);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:Rajdhani,sans-serif;">✕ Fechar</button>
         <button onclick="nextYear()" style="background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--green);padding:7px 12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;font-family:Rajdhani,sans-serif;line-height:1;">▶</button>
     </div>
     </div>
+
+<div class="calendar-store-btn">
+  <button onclick="abrirLoja()" class="btn-store-center">🛒 ACESSAR A LOJA</button>
+</div>
 
 <div class="months-grid" id="monthsGrid"></div>
 
