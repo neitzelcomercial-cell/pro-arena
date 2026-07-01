@@ -1,3 +1,5 @@
 # Arquivos locais que nao sobem para o GitHub Pages
 .DS_Store
 Thumbs.db
+index.html.bak
+fix-line-2070.js
