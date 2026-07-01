@@ -8,35 +8,35 @@
         @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Special+Elite&family=Share+Tech+Mono&family=Changa:wght@400;600;700&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 :root {
-    --green: #22c55e;
-    --green-dark: #16a34a;
-    --green-light: #4ade80;
-    --green-glass: rgba(34,197,94,0.2);
-    --green-glass-hover: rgba(34,197,94,0.3);
-    --green-glow: rgba(34,197,94,0.35);
-    --green-glow-strong: rgba(34,197,94,0.55);
-    --red: #ef4444;
-    --red-light: #dc2626;
+    --green: #4a7c3f;
+    --green-dark: #2d5a27;
+    --green-light: #6b9e5e;
+    --green-glass: rgba(74,124,63,0.15);
+    --green-glass-hover: rgba(74,124,63,0.25);
+    --green-glow: rgba(74,124,63,0.20);
+    --green-glow-strong: rgba(74,124,63,0.35);
+    --red: #8b3a3a;
+    --red-light: #a52a2a;
     --red-glass: rgba(239,68,68,0.2);
     --red-glass-hover: rgba(239,68,68,0.3);
-    --sand: #d4d4d4;
-    --sand-dark: #a1a1aa;
-    --dark: #0a0a0a;
-    --dark-2: #111111;
-    --dark-3: #1a1a1a;
-    --glass-bg: rgba(255,255,255,0.06);
-    --glass-bg-hover: rgba(255,255,255,0.10);
+    --sand: #c0c0c0;
+    --sand-dark: #8a8a8a;
+    --dark: #050505;
+    --dark-2: #0d0d0d;
+    --dark-3: #141414;
+    --glass-bg: rgba(255,255,255,0.04);
+    --glass-bg-hover: rgba(255,255,255,0.07);
     --glass-bg-2: rgba(255,255,255,0.03);
-    --glass-border: rgba(255,255,255,0.10);
+    --glass-border: rgba(255,255,255,0.06);
     --glass-border-hover: rgba(255,255,255,0.15);
     --glass-border-2: rgba(34,197,94,0.15);
     --glass-border-2-hover: rgba(34,197,94,0.3);
     --glass-shadow: 0 8px 32px rgba(0,0,0,0.6);
     --glass-shadow-hover: 0 12px 48px rgba(0,0,0,0.7);
     --glass-shadow-lg: 0 12px 48px rgba(0,0,0,0.7);
-    --radius: 16px;
-    --radius-sm: 10px;
-    --radius-xs: 6px;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --radius-xs: 4px;
     --radius-lg: 20px;
     --transition: all .3s cubic-bezier(.4,0,.2,1);
     --transition-fast: all .2s cubic-bezier(.4,0,.2,1);
@@ -79,8 +79,8 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
             content: ''; position: fixed; inset: 0; z-index: -1;
             background-image: url('logo-realista.jpeg');
             background-size: cover; background-position: center;
-            filter: blur(4px) brightness(0.2) sepia(0.2) saturate(0.5);
-            opacity: 0.5;
+            filter: blur(6px) brightness(0.12) sepia(0.3) saturate(0.4);
+            opacity: 0.7;
             pointer-events: none;
         }
         }
@@ -494,7 +494,7 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
   let w, h, particles = [];
   function resize(){ w=c.width=window.innerWidth; h=c.height=window.innerHeight; }
   window.addEventListener('resize', resize); resize();
-  const count = Math.min(80, Math.floor(w*h/15000));
+  const count = Math.min(30, Math.floor(w*h/25000));
   for(let i=0;i<count;i++){
     particles.push({
       x: Math.random()*w, y: Math.random()*h,
@@ -510,7 +510,7 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
       if(p.y<0||p.y>h) p.vy*=-1;
       ctx.beginPath();
       ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(34,197,94,${p.a})`;
+      ctx.fillStyle=`rgba(74,124,63,${p.a*0.5})`;
       ctx.fill();
     }
     // Draw connections
@@ -523,7 +523,7 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
           ctx.beginPath();
           ctx.moveTo(particles[i].x,particles[i].y);
           ctx.lineTo(particles[j].x,particles[j].y);
-          ctx.strokeStyle=`rgba(34,197,94,${0.05*(1-dist/120)})`;
+          ctx.strokeStyle=`rgba(74,124,63,${0.03*(1-dist/120)})`;
           ctx.lineWidth=0.5;
           ctx.stroke();
         }
@@ -531,7 +531,7 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
     }
     // Crosshair overlay
     const cx=w/2, cy=h/2;
-    ctx.strokeStyle='rgba(34,197,94,0.03)'; ctx.lineWidth=1;
+    ctx.strokeStyle='rgba(74,124,63,0.02)'; ctx.lineWidth=1;
     ctx.setLineDash([4,8]);
     ctx.beginPath(); ctx.moveTo(cx-40,cy); ctx.lineTo(cx+40,cy); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(cx,cy-40); ctx.lineTo(cx,cy+40); ctx.stroke();
@@ -542,7 +542,7 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
 }, 100); })();
 </script>
 <style>
-#particleCanvas { position:fixed; inset:0; z-index:0; width:100vw; height:100vh; pointer-events:none; opacity:0.6; }
+#particleCanvas { position:fixed; inset:0; z-index:0; width:100vw; height:100vh; pointer-events:none; opacity:0.15; }
 </style>
 
 <!-- ============================================================ -->
@@ -555,12 +555,12 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
       <span>ARENA <span style="color:var(--sand)">SQUAD</span></span>
     </div>
     <div class="landing-nav">
-      <a href="#landingHero">Início</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#fotos">Fotos</a>
-      <a href="javascript:abrirCalendario()">Agenda</a>
+      <a href="#landingHero">INÍCIO</a>
+      <a href="#sobre">SOBRE</a>
+      <a href="#fotos">FOTOS</a>
+      <a href="javascript:abrirCalendario()">AGENDA</a>
       <a href="javascript:()">Loja</a>
-      <a href="#endereco">Contato</a>
+      <a href="#endereco">CONTATO</a>
     </div>
   </div>
 
@@ -571,12 +571,12 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
     <div class="landing-hero-content">
       <div class="landing-hero-icon">⚔️</div>
       <h1 class="landing-hero-title">ARENA <span>SQUAD</span></h1>
-      <p class="landing-hero-sub">Mais que um esporte — uma experiência de estratégia, honra e superação</p>
-      <p class="landing-hero-quote">"O campo de batalha não define quem você é — ele revela."</p>
+      <p class="landing-hero-sub">ESTRATÉGIA · HONRA · SUPERAÇÃO</p>
+      <p class="landing-hero-quote">"A disciplina forja guerreiros. A honra define homens."</p>
       <div class="landing-hero-actions">
-        <a href="javascript:abrirCalendario()" class="landing-btn primary">📅 Agende seu Jogo</a>
+        <a href="javascript:abrirCalendario()" class="landing-btn primary">◆ AGENDAR</a>
         <a href="javascript:()" class="landing-btn primary">🛒 Acessar Loja</a>
-        <a href="#sobre" class="landing-btn secondary">◆ Conheça mais</a>
+        <a href="#sobre" class="landing-btn secondary">◆ CONHECER</a>
       </div>
     </div>
   </section>
@@ -703,8 +703,8 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
     <div class="landing-container">
       <h2 style="font-family:Orbitron,monospace;font-size:clamp(22px,5vw,36px);color:var(--green);letter-spacing:2px">◆ VEM PRO <span style="color:var(--sand)">SQUAD</span></h2>
       <div style="width:60px;height:2px;background:var(--green);margin:16px auto"></div>
-      <p style="font-size:clamp(16px,3vw,22px);color:var(--sand);font-weight:600;max-width:600px;margin:0 auto 24px">"A guerra não é vencida por aquele que atira primeiro, mas por aquele que nunca desiste do seu squad."</p>
-      <a href="javascript:abrirCalendario()" class="landing-btn primary" style="display:inline-block;font-size:16px;padding:14px 40px">📅 Agende Agora</a>
+      <p style="font-size:clamp(16px,3vw,22px);color:var(--sand);font-weight:600;max-width:600px;margin:0 auto 24px">"A verdadeira vitória está na superação dos próprios limites."</p>
+      <a href="javascript:abrirCalendario()" class="landing-btn primary" style="display:inline-block;font-size:16px;padding:14px 40px">◆ AGENDAR</a>
     </div>
   </section>
 
@@ -784,7 +784,7 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
   padding:6px 12px; border-radius:8px; transition:var(--transition);
   white-space:nowrap;
 }
-.landing-nav a:hover { background:var(--green-glass); color:var(--green); }
+.landing-nav a:hover { color:var(--green); }
 
 /* Hero */
 .landing-hero {
@@ -795,19 +795,19 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
 .landing-hero-bg {
   position:absolute; inset:0;
   background:url('logo-realista.jpeg') center/cover no-repeat;
-  filter:blur(2px) brightness(0.25);
+  filter:blur(4px) brightness(0.15);
 }
 .landing-hero-overlay {
   position:absolute; inset:0;
-  background:linear-gradient(180deg,rgba(10,10,10,0.4) 0%,rgba(10,10,10,0.8) 50%,var(--dark) 100%);
+  background:linear-gradient(180deg,rgba(5,5,5,0.5) 0%,rgba(5,5,5,0.85) 50%,var(--dark) 100%);
 }
 .landing-hero-content { position:relative; z-index:2; text-align:center; max-width:700px; }
 .landing-hero-icon { font-size:64px; margin-bottom:16px; animation:float 3s ease-in-out infinite; }
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-.landing-hero-title { font-family:Orbitron,monospace;font-size:clamp(32px,8vw,56px);color:#fff;letter-spacing:4px;font-weight:400; }
+.landing-hero-title { font-family:Orbitron,monospace;font-size:clamp(26px,6vw,44px);color:#e8e8e8;letter-spacing:8px;font-weight:400; }
 .landing-hero-title span { color:var(--green); }
-.landing-hero-sub { font-size:clamp(16px,3vw,22px);color:var(--sand);margin-top:12px;font-weight:500; }
-.landing-hero-quote { font-family:'Special Elite',monospace;font-size:clamp(14px,2vw,18px);color:var(--green-light);margin-top:20px;opacity:0.7;font-style:italic; }
+.landing-hero-sub { font-size:clamp(13px,2vw,16px);color:var(--sand-dark);margin-top:10px;font-weight:400;letter-spacing:3px; }
+.landing-hero-quote { font-family:'Special Elite',monospace;font-size:clamp(12px,1.8vw,15px);color:var(--sand-dark);margin-top:16px;opacity:0.5;font-style:normal;letter-spacing:1px; }
 .landing-hero-actions { margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center; }
 
 .landing-btn {
@@ -816,18 +816,18 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
   font-family:Rajdhani,sans-serif; letter-spacing:1px;
 }
 .landing-btn.primary { background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff; }
-.landing-btn.primary:hover { transform:translateY(-2px);box-shadow:0 0 30px rgba(34,197,94,0.3); }
+.landing-btn.primary:hover { box-shadow:0 0 15px rgba(74,124,63,0.2); }
 .landing-btn.secondary { background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--sand); }
-.landing-btn.secondary:hover { background:var(--green-glass);border-color:var(--green);color:var(--green); }
+.landing-btn.secondary:hover { border-color:var(--green);color:var(--green); }
 
 /* Sections */
 .landing-section { padding:60px 20px; position:relative; }
 .landing-container { max-width:1100px; margin:0 auto; }
-.landing-title { font-family:Orbitron,monospace;font-size:clamp(22px,4vw,32px);color:#fff;letter-spacing:2px;text-align:center;font-weight:400; }
+.landing-title { font-family:Orbitron,monospace;font-size:clamp(18px,3.5vw,26px);color:#e0e0e0;letter-spacing:4px;text-align:center;font-weight:400;text-transform:uppercase; }
 .landing-title span { color:var(--green); }
-.landing-divider { width:60px;height:2px;background:var(--green);margin:12px auto 32px; }
+.landing-divider { width:36px;height:1px;background:var(--green);margin:10px auto 28px; }
 
-.landing-text { font-size:15px;line-height:1.8;color:var(--sand); }
+.landing-text { font-size:14px;line-height:1.7;color:var(--sand-dark); }
 .landing-grid-2 { display:grid;grid-template-columns:1fr 1fr;gap:24px; }
 .landing-grid-3 { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
 .landing-grid-4 { display:grid;grid-template-columns:repeat(4,1fr);gap:16px; }
@@ -839,15 +839,15 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
 /* Cards */
 .landing-image-card { background:var(--dark-3);border:1px solid var(--glass-border);border-radius:var(--radius);overflow:hidden; }
 .landing-info-card { background:var(--dark-3);border:1px solid var(--glass-border-2);border-radius:var(--radius);padding:28px 20px;text-align:center;transition:var(--transition); }
-.landing-info-card:hover { border-color:var(--green);transform:translateY(-4px);box-shadow:0 8px 30px rgba(34,197,94,0.1); }
+.landing-info-card:hover { border-color:var(--green); }
 .landing-info-icon { font-size:40px;margin-bottom:12px; }
 .landing-info-card h3 { font-family:Orbitron,monospace;font-size:14px;color:var(--green);margin-bottom:8px; }
 .landing-info-card p { font-size:13px;color:var(--sand-dark);line-height:1.6; }
 
 /* Values */
 .landing-value-card { background:var(--dark-3);border:1px solid var(--glass-border-2);border-radius:var(--radius);padding:28px 20px;text-align:center; }
-.landing-value-card h3 { font-family:Orbitron,monospace;font-size:16px;color:var(--green);margin-bottom:8px; }
-.landing-value-card p { font-size:14px;color:var(--sand-dark);line-height:1.5; }
+.landing-value-card h3 { font-family:Orbitron,monospace;font-size:13px;color:var(--green);margin-bottom:6px;letter-spacing:2px; }
+.landing-value-card p { font-size:12px;color:var(--sand-dark);line-height:1.6; }
 
 /* Pricing */
 .landing-pricing { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:800px;margin:0 auto; }
@@ -856,8 +856,8 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
 .landing-price-card { background:var(--dark-3);border:1px solid var(--glass-border);border-radius:var(--radius);padding:28px 20px;text-align:center; }
 .landing-price-card.featured { border-color:var(--green);background:linear-gradient(180deg,rgba(34,197,94,0.08),var(--dark-3)); }
 .landing-price-icon { font-size:36px;margin-bottom:8px; }
-.landing-price-card h3 { font-family:Orbitron,monospace;font-size:14px;color:var(--green);margin-bottom:8px; }
-.landing-price-value { font-family:Orbitron,monospace;font-size:28px;font-weight:900;color:#fff;margin:8px 0; }
+.landing-price-card h3 { font-family:Orbitron,monospace;font-size:12px;color:var(--green);margin-bottom:4px;letter-spacing:2px; }
+.landing-price-value { font-family:Orbitron,monospace;font-size:24px;font-weight:700;color:#e0e0e0;margin:6px 0; }
 .landing-price-card p { font-size:13px;color:var(--sand-dark); }
 .landing-price-total { margin-top:12px;padding-top:12px;border-top:1px solid var(--glass-border);font-size:14px;color:var(--sand); }
 .landing-price-total strong { color:var(--green-light);font-size:18px; }
@@ -866,7 +866,7 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
 .landing-gallery { display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:120px;gap:8px; }
 @media(max-width:600px){ .landing-gallery { grid-template-columns:repeat(2,1fr);grid-auto-rows:100px; } }
 .landing-gallery-item { overflow:hidden;border-radius:var(--radius-sm);border:1px solid var(--glass-border);cursor:pointer;transition:var(--transition); }
-.landing-gallery-item:hover { border-color:var(--green);transform:scale(1.02); }
+.landing-gallery-item:hover { border-color:var(--green); }
 .landing-gallery-item img { width:100%;height:100%;object-fit:cover; }
 /* Lightbox */
 #lightboxOverlay { position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:none;align-items:center;justify-content:center;padding:20px; }
@@ -880,13 +880,13 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
 .landing-contact-item { display:flex;gap:12px;align-items:flex-start;margin-bottom:16px; }
 .landing-contact-item:last-child { margin-bottom:0; }
 .landing-contact-icon { font-size:20px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--glass-bg);border-radius:8px;flex-shrink:0; }
-.landing-contact-item strong { font-size:13px;color:var(--green);display:block;margin-bottom:2px; }
-.landing-contact-item p { font-size:13px;color:var(--sand);line-height:1.4; }
+.landing-contact-item strong { font-size:12px;color:var(--green);display:block;margin-bottom:2px;letter-spacing:1px; }
+.landing-contact-item p { font-size:12px;color:var(--sand-dark);line-height:1.4; }
 
 .landing-social-card { background:var(--dark-3);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px; }
 .landing-social-grid { display:grid;grid-template-columns:1fr 1fr;gap:8px; }
-.landing-social-btn { padding:10px;border-radius:8px;color:var(--sand);text-decoration:none;font-weight:700;font-size:12px;text-align:center;border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:blur(8px); }
-.landing-social-btn:hover { border-color:var(--glass-border-hover);background:var(--glass-bg-hover); }
+.landing-social-btn { padding:8px;border-radius:4px;color:var(--sand);text-decoration:none;font-weight:600;font-size:11px;text-align:center;border:1px solid var(--glass-border);background:var(--glass-bg); }
+.landing-social-btn:hover { border-color:var(--green); }
 .landing-contact-icon { font-size:20px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:8px;flex-shrink:0; }
 
 /* Scroll hint for landing */
@@ -1364,7 +1364,7 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
             ctx.font = '11px "Courier New", monospace';
             for (let i = 0; i < drops.length; i++) {
                 const c = codigos[Math.floor(Math.random() * codigos.length)];
-                ctx.fillStyle = `rgba(34,197,94,${0.08 + Math.random() * 0.15})`;
+                ctx.fillStyle = `rgba(74,124,63,${0.03 + Math.random() * 0.06})`;
                 ctx.fillText(c, i * 22, drops[i] * 20);
                 if (drops[i] * 20 > canvas.height && Math.random() > 0.992) drops[i] = 0;
                 drops[i] += 0.3;
