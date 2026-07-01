@@ -917,21 +917,10 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
 <div class="landing-scroll-hint">↓ Role para ver o calendário</div>
 </div>
 
-<div id="calendarSection" style="display:none"><div class="topbar">
-    <div class="topbar-brand">
-        <img src="logoedit.jpeg" alt="Arena Squad" style="height:38px;border-radius:6px;">
-    </div>
-    <div class="topbar-actions">
-        <button onclick="openAdmin()" style="background:rgba(239,68,68,0.2);border:1px solid rgba(239,68,68,0.3);color:var(--red-light);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:Rajdhani,sans-serif;">⚙️ Admin</button>
-        <button class="btn-today" onclick="goToday()">◆ Atual</button>
-        <button onclick="prevYear()" style="background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--green);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:Rajdhani,sans-serif;line-height:1;">◀</button>
-        <button onclick="nextYear()" style="background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--green);padding:7px 12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;font-family:Rajdhani,sans-serif;line-height:1;">▶</button>
-        <button onclick="fecharCalendario()" style="background:var(--green-glass);border:1px solid var(--green);color:var(--green);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:Rajdhani,sans-serif;">◈ Voltar ao Site</button>
-    </div>
-    </div>
-
-<div class="calendar-store-btn">
-  <button onclick="()" class="btn-store-center">🛒 ACESSAR A LOJA</button>
+<div id="calendarSection" style="display:none">
+  <div style="text-align:right;padding:10px 16px;position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.75);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border-bottom:1px solid var(--glass-border);">
+    <button onclick="fecharCalendario()" style="background:var(--green-glass);border:1px solid var(--green);color:var(--green);padding:7px 16px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:Rajdhani,sans-serif;">◈ Voltar ao Site</button>
+  </div>
 </div>
 
 <div class="months-grid" id="monthsGrid"></div>
