@@ -324,8 +324,9 @@ async function syncLoadProdutos() {
 
     const produtos = (data || []).map(row => {
       const p = rowToProduto(row);
-      // Tenta montar URL pública se imagem começar com produtos/
-      if (p.imagem && !p.imagem.startsWith('data:') && !p.imagem.startsWith('http')) {
+      // So monta URL do Storage se comecar com 'produtos/' (imagem enviada)
+      // Senao mantem como esta (arquivo local na pasta do site)
+      if (p.imagem && p.imagem.startsWith('produtos/')) {
         const { data: urlData } = supabase.storage.from('produtos').getPublicUrl(p.imagem);
         p.imagem = urlData.publicUrl;
       }
