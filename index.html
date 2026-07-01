@@ -1563,6 +1563,19 @@ h1, h2, h3, h4, .font-military { font-family: 'Orbitron', monospace; }
     document.body.appendChild(migraScript);
     console.log('%c📋 Para migrar dados locais para o Supabase, digite:', 'font-size:12px;color:#888');
     console.log('%c  migrar()', 'font-size:14px;font-weight:bold;color:#22c55e');
+
+function abrirCalendario(){
+  var l=document.getElementById('landingSection');
+  var c=document.getElementById('calendarSection');
+  if(l)l.style.display='none';if(c)c.style.display='block';
+  render();if(state.panelDay!==null)openPanel(state.panelDay,state.panelMonth);
+}
+function fecharCalendario(){
+  var l=document.getElementById('landingSection');
+  var c=document.getElementById('calendarSection');
+  if(c)c.style.display='none';if(l)l.style.display='block';
+}
+
 </script>
 
 </div><!-- /calendarSection -->
