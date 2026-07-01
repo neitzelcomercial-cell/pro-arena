@@ -1947,14 +1947,164 @@ function imgErrorDetalhe(img) {
   img.parentNode.innerHTML = '<div style="height:200px;display:flex;align-items:center;justify-content:center;font-size:64px">' + ico + '</div>';
 }
 
-const FISICOS = [];
+const FISICOS = [
+  {
+    "id": "p01",
+    "cat": "armamentos",
+    "nome": "Réplica M4 CQB",
+    "desc": "AEG 320fps compacta",
+    "preco": 599.9,
+    "ico": "◆",
+    "badge": "Novo",
+    "est": 8,
+    "imagem": "pro2.jpeg"
+  },
+  {
+    "id": "p02",
+    "cat": "armamentos",
+    "nome": "Pistola G19 GBB",
+    "desc": "Gás 290fps",
+    "preco": 349.9,
+    "ico": "◆",
+    "badge": null,
+    "est": 6,
+    "imagem": "pro2.jpeg"
+  },
+  {
+    "id": "p03",
+    "cat": "equipamentos",
+    "nome": "Colete Tático",
+    "desc": "MOLLE ajustável",
+    "preco": 179.9,
+    "ico": "◆",
+    "badge": null,
+    "est": 4,
+    "imagem": "pro2.jpeg"
+  },
+  {
+    "id": "p04",
+    "cat": "equipamentos",
+    "nome": "Kit Proteção",
+    "desc": "Óculos + máscara",
+    "preco": 89.9,
+    "ico": "◆",
+    "badge": "Essencial",
+    "est": 12,
+    "imagem": "pro2.jpeg"
+  },
+  {
+    "id": "p05",
+    "cat": "municao",
+    "nome": "Bolinha 0.25g 3000un",
+    "desc": "Precisão média",
+    "preco": 59.9,
+    "ico": "◆",
+    "badge": null,
+    "est": 50,
+    "imagem": "pro2.jpeg"
+  },
+  {
+    "id": "p06",
+    "cat": "municao",
+    "nome": "Bolinha Biodegradável",
+    "desc": "0.20g 2000un eco",
+    "preco": 44.9,
+    "ico": "◆",
+    "badge": "Eco",
+    "est": 30,
+    "imagem": "pro2.jpeg"
+  },
+  {
+    "id": "p07",
+    "cat": "roupas",
+    "nome": "Camiseta Arena Squad",
+    "desc": "Dry-fit preta",
+    "preco": 79.9,
+    "ico": "◆",
+    "badge": null,
+    "est": 15,
+    "imagem": "pro2.jpeg"
+  },
+  {
+    "id": "p08",
+    "cat": "roupas",
+    "nome": "Boné Tático",
+    "desc": "Preto bordado",
+    "preco": 59.9,
+    "ico": "◆",
+    "badge": "Novo",
+    "est": 20,
+    "imagem": "pro2.jpeg"
+  },
+  {
+    "id": "p09",
+    "cat": "outros",
+    "nome": "Patch Squad",
+    "desc": "Bordado 10x4cm",
+    "preco": 19.9,
+    "ico": "◆",
+    "badge": null,
+    "est": 25,
+    "imagem": "pro2.jpeg"
+  },
+  {
+    "id": "p10",
+    "cat": "outros",
+    "nome": "Caneca Tática 500ml",
+    "desc": "Inox c/ tampa",
+    "preco": 49.9,
+    "ico": "◆",
+    "badge": null,
+    "est": 18,
+    "imagem": "pro2.jpeg"
+  }
+];
 const ONLINE = [
-  {id:'p1',cat:'vouchers',nome:'Day Pass',desc:'1 dia (8h) na Arena',preco:49.90,ico:'◆',badge:null},
-  {id:'p2',cat:'vouchers',nome:'Plano Mensal',desc:'30 dias ilimitado',preco:89.90,ico:'◆',badge:'Econômico'},
-  {id:'p3',cat:'vouchers',nome:'Voucher Gift R$50',desc:'Presente arena',preco:50.00,ico:'◆',badge:null},
-  {id:'pa1',cat:'planos',nome:'Plano Trimestral',desc:'3 meses + camiseta',preco:199.90,ico:'◆',badge:'Popular'},
-  {id:'pa2',cat:'planos',nome:'Anual VIP',desc:'12 meses +10% bar',preco:599.90,ico:'◆',badge:'VIP'},
-  {id:'pa3',cat:'cursos',nome:'Curso Iniciação',desc:'E-book + videoaulas',preco:39.90,ico:'◆',badge:null},
+  {
+    "id": "v01",
+    "cat": "vouchers",
+    "nome": "Day Pass Arena",
+    "desc": "1 dia de jogo (8h)",
+    "preco": 49.9,
+    "ico": "◆",
+    "badge": null
+  },
+  {
+    "id": "v02",
+    "cat": "vouchers",
+    "nome": "Voucher Gift R$50",
+    "desc": "Presente para squad",
+    "preco": 50,
+    "ico": "◆",
+    "badge": "Presente"
+  },
+  {
+    "id": "v03",
+    "cat": "planos",
+    "nome": "Plano Mensal",
+    "desc": "30 dias ilimitado",
+    "preco": 89.9,
+    "ico": "◆",
+    "badge": "Econômico"
+  },
+  {
+    "id": "v04",
+    "cat": "planos",
+    "nome": "Plano Trimestral",
+    "desc": "3 meses + camiseta",
+    "preco": 199.9,
+    "ico": "◆",
+    "badge": "Popular"
+  },
+  {
+    "id": "v05",
+    "cat": "cursos",
+    "nome": "Curso Iniciação",
+    "desc": "E-book + videoaulas",
+    "preco": 39.9,
+    "ico": "◆",
+    "badge": null
+  }
 ];
 
 let est = JSON.parse(localStorage.getItem('arenaEst') || '{}');
